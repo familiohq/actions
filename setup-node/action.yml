@@ -8,7 +8,7 @@ inputs:
   node-version:
     required: false
     description: 'The node version that should be used'
-    default: '16'
+    default: '20'
   token:
     required: false
     description: 'Personal access token (PAT) used to fetch the repository.'
@@ -16,14 +16,14 @@ inputs:
   registry-url:
     required: false
     description: 'The registry where the package will be published'
-    default: 'https://npm.pkg.github.com/paralenz'
+    default: 'https://npm.pkg.github.com/familiohq'
     
 
 runs:
     using: 'composite'
     steps:
-      - name: Set up Node
-        uses: actions/setup-node@v2
+      - name: Setup Node
+        uses: actions/setup-node@3.6.0
         with:
           node-version: ${{inputs.node-version}}
           registry-url: ${{inputs.registry-url}}
